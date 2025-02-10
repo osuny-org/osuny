@@ -13,6 +13,7 @@ module Communication::Block::WithTemplate
     enum :template_kind, {
       agenda: 3100,
       call_to_action: 900,
+      categories: 3500,
       chapter: 50,
       contact: 57,
       datatable: 54,

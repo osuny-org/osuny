@@ -191,6 +191,7 @@ en:
     children: Sub-categories
     featured_image: Featured image
     featured_image_alt: Alternative text
+    free: Free categories (without taxonomy)
     is_taxonomy: Is a taxonomy (a family of categories)?
     name: Name
     parent: Parent category

@@ -140,6 +140,37 @@ en:
               no_background:
                 description: A much more discrete block layout.
                 label: Simple
+          categories:
+            description: A list of categories, whether of pages, people, organizations...
+            edit:
+              category_kind:
+                label: Types of categories de catégories
+              description:
+                label: Description
+              option_count:
+                label: Show the number of elements in each category
+              option_image:
+                label: Show the category's images
+              option_summary:
+                label: Show the summary of each category
+              taxonomy_id:
+                label: Which taxonomy?
+            layouts:
+              alternate:
+                description: Categories either on the left or on the right, composing a graphically light page.
+                label: Alternate
+              cards:
+                description: Cards side by side, of same height, with a strong color on rollover.
+                label: Cards
+              grid:
+                description: As a grid, with all images the same height.
+                label: Grid
+              large:
+                description: Each category is really big, using full desktop width.
+                label: Large
+              list:
+                description: A list of categories with small images, all of the same width.
+                label: List
           chapter:
             description: A section of a document, with a title, a text, footnotes and an image.
             edit:
@@ -749,6 +780,7 @@ en:
         template_kind:
           agenda: Agenda
           call_to_action: Call to action
+          categories: Categories
           chapter: Chapter
           contact: Contact
           datatable: Table

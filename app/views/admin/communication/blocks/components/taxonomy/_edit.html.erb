@@ -1,0 +1,38 @@
+<%
+block.template.category_kinds_allowed.each do |kind|
+  taxonomies = block.template.taxonomies_for(kind)
+  next if taxonomies.none?
+  collection = osuny_collection(taxonomies, localized: true)
+  %>
+  <div v-show="data.category_kind == '<%= kind.to_s %>'">
+    <fieldset class="mb-3">
+      <legend class="form-label"><%= label %></legend>
+      <div class="form-check">
+        <input  class="form-check-input"
+                type="radio"
+                value=""
+                v-model="<%= model %>.<%= property %>"
+                id="<%= dom_id.html_safe %>-<%= kind.to_s %>-free">
+        <label class="form-check-label" for="<%= dom_id.html_safe %>-<%= kind.to_s %>-free">
+          <%= t("category.free") %>
+        </label>
+      </div>
+      <%
+      collection.each do |taxonomy|
+        taxonomy_label = taxonomy.first
+        taxonomy_id = taxonomy.last
+        %>
+        <div class="form-check">
+          <input  class="form-check-input"
+                  type="radio"
+                  value="<%= taxonomy_id %>"
+                  v-model="<%= model %>.<%= property %>"
+                  id="<%= dom_id.html_safe %>-<%= taxonomy_id %>">
+          <label class="form-check-label" for="<%= dom_id.html_safe %>-<%= taxonomy_id %>">
+            <%= taxonomy_label %>
+          </label>
+        </div>
+      <% end %>
+    </fieldset>
+  </div>
+<% end %>

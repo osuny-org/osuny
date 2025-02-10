@@ -1,0 +1,17 @@
+<% block.template.selected_categories.each do |category|
+  l10n = category.localization_for(block.language) 
+  next if l10n.nil? 
+  %>
+<div class="row mb-3">
+  <div class="col-2">
+    <% if l10n.featured_image.attached? %>
+      <%= kamifusen_tag l10n.featured_image, width: 200, class: 'img-fluid mb-2' %>
+    <% else %>
+      <%= image_tag 'admin/placeholder.png', class: 'img-fluid mb-2' %>
+    <% end %>
+  </div>
+  <div class="col-10">
+    <p><%= l10n.to_s %></p>
+  </div>
+</div>
+<% end %>

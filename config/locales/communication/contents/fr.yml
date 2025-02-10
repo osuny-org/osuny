@@ -140,6 +140,37 @@ fr:
               no_background:
                 description: Un bloc beaucoup plus discret.
                 label: Simple
+          categories:
+            description: Une liste de catégories de pages, de personnes ou d'organisations...
+            edit:
+              category_kind:
+                label: Type de catégories
+              description:
+                label: Description
+              option_count:
+                label: Afficher le nombre d'élements dans la catégorie
+              option_image:
+                label: Afficher les images des catégories
+              option_summary:
+                label: Afficher les descriptions courtes des catégories
+              taxonomy_id:
+                label: Quelle taxonomie afficher ?
+            layouts:
+              alternate:
+                description: Une alternance très légère graphiquement de catégories, rythmée entre la gauche et la droite.
+                label: Alternance
+              cards:
+                description: Des cartes côte à côte, de même hauteur, avec une couleur forte au survol. Ce format est idéal pour un petit nombre de catégories.
+                label: Cartes
+              grid:
+                description: Les catégories sont présentées en grille, avec les images toutes de la même taille.
+                label: Grille
+              large:
+                description: Chaque catégorie est présentée en majesté, sur toute la largeur disponible avec une grande image.
+                label: Grand
+              list:
+                description: Une liste de catégories avec de petites images à la même largeur.
+                label: Liste
           chapter:
             description: Une section de document avec un titre, un texte, des notes de bas de page et une image.
             edit:
@@ -749,6 +780,7 @@ fr:
         template_kind:
           agenda: Agenda
           call_to_action: Appel à actions
+          categories: Catégories
           chapter: Chapitre
           contact: Contact
           datatable: Tableau

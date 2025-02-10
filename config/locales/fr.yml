@@ -191,6 +191,7 @@ fr:
     children: Sous-catégories
     featured_image: Image à la une
     featured_image_alt: Texte alternatif
+    free: Catégories libres (sans taxonomie)
     is_taxonomy: Est une taxonomie (une famille de catégories)
     name: Nom
     parent: Catégorie parente
