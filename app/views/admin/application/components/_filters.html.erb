@@ -1,9 +1,9 @@
-<div class="offcanvas offcanvas-end" tabindex="-1" id="filters" aria-labelledby="filtersLabel">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filtersOffcanvas" aria-labelledby="filtersLabel">
   <div class="offcanvas-header">
     <h4><%= t('filters.title') %></h4>
-    <button type="button" 
-            class="btn-close text-reset" 
-            data-bs-dismiss="offcanvas" 
+    <button type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
             aria-label="<%= t('filters.buttons.close') %>">
     </button>
   </div>
@@ -16,10 +16,10 @@
   </div>
 </div>
 
-<button class="btn btn-sm btn-secondary" 
+<button class="btn btn-sm btn-secondary"
         type="button"
         data-bs-toggle="offcanvas"
-        data-bs-target="#filters"
+        data-bs-target="#filtersOffcanvas"
         aria-controls="filters">
   <%= t('filters.buttons.expand') %>
   <% if active_filters_count > 0 %>
