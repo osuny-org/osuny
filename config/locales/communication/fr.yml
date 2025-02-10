@@ -546,8 +546,8 @@ fr:
             slug: organisations
             title: Organisations
           person:
-            slug: equipe
-            title: Équipe
+            slug: personnes
+            title: Personnes
           privacy_policy:
             slug: politique-de-confidentialite
             title: Politique de confidentialité
@@ -606,7 +606,7 @@ fr:
               page: Page spécifique
               paper: Papier spécifique
               papers: Liste des papiers
-              persons: Équipe
+              persons: Personnes
               post: Actualité spécifique
               posts: Liste des actualités
               program: Formation spécifique

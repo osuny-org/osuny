@@ -1,5 +1,9 @@
 class Communication::Website::Page::LegalTerm < Communication::Website::Page
 
+  def design_options_block_template_kind
+    nil
+  end
+
   def draftable?
     false
   end

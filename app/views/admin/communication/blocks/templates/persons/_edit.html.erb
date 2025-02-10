@@ -44,18 +44,8 @@
 <%= osuny_separator %>
 <%= osuny_panel t('admin.communication.blocks.components.layouts.label'), small: true do %>
   <%= block_component_edit block, :layout %>
-  <%= osuny_label t('admin.communication.blocks.display_options.title') %>
-  <div class="row">
-    <div class="col-sm-6">
-      <%= block_component_edit block, :option_image %>
-      <%= block_component_edit block, :option_summary, label: t('admin.summary.label') %>
-      <div v-if="data.mode === 'selection'">
-        <%= block_component_edit block, :alphabetical %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <%= block_component_edit block, :option_link %>
-      <%= block_component_edit block, :option_contact %>
-    </div>
+  <%= render 'admin/communication/blocks/templates/persons/options', block: block %>
+  <div v-if="data.mode === 'selection'">
+    <%= block_component_edit block, :alphabetical %>
   </div>
 <% end %>

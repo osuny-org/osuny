@@ -6,6 +6,7 @@
       <p class="lead mb-1"><%= @l10n.title %></p>
       <%= render 'admin/application/property/publication', about: @l10n %>
     <% end %>
+    <%= render 'admin/communication/websites/pages/design_options/show', about: @page %>
   </div>
   <div class="offset-lg-1 col-lg-4">
     <%= render 'admin/application/images/featured/show', about: @l10n, small: true %>
@@ -23,6 +24,7 @@
     <%= render 'admin/application/meta_description/show', about: @l10n, small: true %>
   </div>
 </div>
+
 <%= render 'admin/communication/contents/editor', about: @l10n %>
 <%= render 'admin/communication/websites/pages/show/special_page' %>
 

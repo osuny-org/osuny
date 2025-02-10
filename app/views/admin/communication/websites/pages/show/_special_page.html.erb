@@ -18,5 +18,11 @@
     # il faut envoyer un tableau vide, qui est la valeur par défaut, pour mettre le troisième argument `partial` à true
     exists = lookup_context.exists? path, [], true
   %>
-  <%= render path if exists %>
+  <% if exists %>
+    <div class="row">
+      <div class="offset-lg-4 col-lg-8">
+        <%= render path %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

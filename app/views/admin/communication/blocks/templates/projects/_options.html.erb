@@ -1,0 +1,12 @@
+<%= osuny_label t('admin.communication.blocks.display_options.title') %>
+<div class="row">
+  <div class="col-sm-6">
+    <%= block_component_edit block, :option_image, label: Communication::Website::Portfolio::Project::Localization.human_attribute_name(:featured_image) %>
+    <%= block_component_edit block, :option_subtitle, label: Communication::Website::Portfolio::Project::Localization.human_attribute_name(:subtitle) %>
+    <%= block_component_edit block, :option_summary, label: t('admin.summary.label') %>
+  </div>
+  <div class="col-sm-6">
+    <%= block_component_edit block, :option_categories, label: Communication::Website::Portfolio::Project.human_attribute_name(:categories) %>
+    <%= block_component_edit block, :option_year, label: Communication::Website::Portfolio::Project.human_attribute_name(:year) %>
+  </div>
+</div>

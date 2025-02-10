@@ -1,0 +1,11 @@
+<%
+if about.design_options?
+  kind = about.design_options_block_template_kind
+  %>
+  <div class="mb-5">
+    <p>
+      <%= osuny_label t('admin.communication.blocks.components.layouts.label') %><br>
+      <%= t "admin.communication.blocks.templates.#{kind}.layouts.#{about.design_options_layout}.label" %>
+    </p>
+  </div>
+<% end %>

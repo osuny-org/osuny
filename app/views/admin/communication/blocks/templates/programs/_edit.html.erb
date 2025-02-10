@@ -25,8 +25,5 @@
 <%= osuny_separator %>
 <%= osuny_panel t('admin.communication.blocks.components.layouts.label'), small: true do %>
   <%= block_component_edit block, :layout %>
-  <%= osuny_label t('admin.communication.blocks.display_options.title') %>
-  <%= block_component_edit block, :option_image, label: Education::Program::Localization.human_attribute_name(:featured_image) %>
-  <%= block_component_edit block, :option_summary, label: t('admin.summary.label') %>
-  <%= block_component_edit block, :option_diploma, label: Education::Program.human_attribute_name(:diploma) %>
+  <%= render 'admin/communication/blocks/templates/programs/options', block: block %>
 <% end %>

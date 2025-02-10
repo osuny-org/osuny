@@ -1,10 +1,9 @@
-<%= osuny_panel t('admin.seo') do %>
-  <%= f.input :meta_description,
-              label: t('admin.meta_description.label'),
-              hint: t('admin.meta_description.hint'),
-              input_html: {
-                data: { translatable: true },
-                rows: 3,
-                value: about.meta_description&.gsub('&amp;', '&')
-              } %>
-<% end %>
+<%= f.input :meta_description,
+            as: :text,
+            label: t('admin.meta_description.label'),
+            hint: t('admin.meta_description.hint'),
+            input_html: {
+              data: { translatable: true },
+              rows: 3,
+              value: about.meta_description&.gsub('&amp;', '&')
+            } %>

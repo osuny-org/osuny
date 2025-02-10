@@ -1,5 +1,10 @@
 class Communication::Website::Page::CommunicationAgendaArchive < Communication::Website::Page
-  def editable_width?
+
+  def design_options_block_template_kind
+    :agenda
+  end
+
+ def editable_width?
     false
   end
 

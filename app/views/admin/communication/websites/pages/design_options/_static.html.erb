@@ -1,0 +1,7 @@
+<% if about.design_options? %>
+  layout: "<%= about.design_options_layout %>"
+  options:
+<% about.design_options_hash.each do |key, value| %>
+    <%= key %>: <%= value %>
+<% end %>
+<% end %>

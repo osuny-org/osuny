@@ -1,0 +1,14 @@
+<%= osuny_label t('admin.communication.blocks.display_options.title') %>
+<div class="row">
+  <div class="col-sm-6">
+    <%= block_component_edit block, :option_image, label: Communication::Website::Post::Localization.human_attribute_name(:featured_image) %>
+    <%= block_component_edit block, :option_subtitle, label: Communication::Website::Post::Localization.human_attribute_name(:subtitle) %>
+    <%= block_component_edit block, :option_summary, label: t('admin.summary.label') %>
+    <%= block_component_edit block, :option_date, label: Communication::Website::Post::Localization.human_attribute_name(:date) %>
+  </div>
+  <div class="col-sm-6">
+    <%= block_component_edit block, :option_author, label: Communication::Website::Post.human_attribute_name(:authors) %>
+    <%= block_component_edit block, :option_categories, label: Communication::Website::Post.human_attribute_name(:categories) %>
+    <%= block_component_edit block, :option_reading_time, label: Communication::Website::Post::Localization.human_attribute_name(:reading_time) %>
+  </div>
+</div>
