@@ -1,0 +1,28 @@
+<%
+exhibition = @l10n.about
+language = @l10n.language
+%>---
+<%= render 'admin/application/static/core', about: @l10n, skip_date: true %>
+<%= render 'admin/application/static/breadcrumbs', about: @l10n %>
+<%= render 'admin/application/static/design',
+            about: exhibition,
+            l10n: @l10n,
+            full_width: false,
+            toc_offcanvas: false %>
+<%= render 'admin/communication/websites/agenda/exhibitions/static/dates',
+            exhibition: exhibition,
+            l10n: @l10n,
+            locale: language.iso_code %>
+<%= render 'admin/application/l10n/static', about: @l10n %>
+<%= render 'admin/application/images/featured/static', about: @l10n %>
+<%= render 'admin/application/images/shared/static', about: @l10n %>
+<%= render 'admin/application/meta_description/static', about: @l10n %>
+<%= render 'admin/application/summary/static', about: @l10n %>
+<%= render 'admin/application/header_cta/static', about: @l10n %>
+<%= render 'admin/application/categories/widget/static',
+            about: exhibition,
+            l10n: @l10n,
+            categories: @website.agenda_categories,
+            key: :events_categories %>
+<%= render 'admin/communication/contents/static', about: @l10n %>
+---

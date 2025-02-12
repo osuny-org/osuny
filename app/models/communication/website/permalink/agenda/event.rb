@@ -7,7 +7,8 @@ class Communication::Website::Permalink::Agenda::Event < Communication::Website:
     :events
   end
 
-  # /agenda/2022-10-21-un-article/
+  # /agenda/2022-10-21-gonzales/
+  # /agenda/2022-10-21-arte-concert-festival/priya-ragu/
   def self.pattern_in_website(website, language)
     special_page_path(website, language) + '/:year-:month-:day-:slug/'
   end
@@ -27,7 +28,7 @@ class Communication::Website::Permalink::Agenda::Event < Communication::Website:
       year: about.from_day.strftime("%Y"),
       month: about.from_day.strftime("%m"),
       day: about.from_day.strftime("%d"),
-      slug: about.slug
+      slug: about.slug_with_ancestors_slugs
     }
   end
 

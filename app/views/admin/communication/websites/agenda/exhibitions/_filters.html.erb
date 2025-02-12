@@ -1,0 +1,19 @@
+<%= simple_form_for :filters, url: current_path, method: :get do |f| %>
+  <%= filters_panel current_path: current_path, active_filters_count: active_filters_count do |form| %>
+
+    <%= render_filter f,
+                      :string,
+                      :for_search_term,
+                      label: t('search')
+                      %>
+
+    <%= render_filter f,
+                      :select,
+                      :for_category,
+                      label: t('filters.attributes.element', element: Communication::Website::Agenda::Category.model_name.human.downcase),
+                      collection: osuny_collection_tree(website.agenda_categories.root, localized: true),
+                      multiple: true
+                      %>
+
+    <% end %>
+<% end %>

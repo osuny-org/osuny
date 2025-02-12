@@ -1,0 +1,16 @@
+<% content_for :title, t('create') %>
+
+<div class="d-flex justify-content-between mb-4">
+  <p>
+    <%= @exhibitions.total_count %>
+    <%= t('admin.item', count: @exhibitions.total_count) %>
+  </p>
+  <%= render 'filters', current_path: admin_communication_website_agenda_exhibitions_path, website: @website %>
+</div>
+
+<%= render 'admin/communication/websites/agenda/exhibitions/list', exhibitions: @exhibitions %>
+<%= paginate @exhibitions %>
+
+<% content_for :action_bar_right do %>
+  <%= create_link Communication::Website::Agenda::Exhibition %>
+<% end %>

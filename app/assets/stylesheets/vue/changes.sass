@@ -3,14 +3,22 @@
     border: 1px solid $color-bg-soft
     border-radius: $border-radius
     bottom: -200px
-    left: 50%
     padding: 10px
     position: fixed
-    transform: translate(-50%, 0)
     transition: bottom 0.5s ease-in-out
     z-index: 9999
+    @include media-breakpoint-down(sm)
+        left: 0
+        right: 0
+        text-align: center
+    @include media-breakpoint-up(sm)
+        left: 50%
+        transform: translate(-50%, 0)
     &--changed
-        bottom: 10px
+        @include media-breakpoint-up(sm)
+            bottom: 10px
+        @include media-breakpoint-down(sm)
+            bottom: 0
     &__cancel,
     &__save
         border: none

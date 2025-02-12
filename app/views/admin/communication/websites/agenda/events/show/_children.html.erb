@@ -1,0 +1,23 @@
+<% if event.can_have_children? %>
+  <div class="event__children">
+    <%= osuny_separator %>
+    <div class="row">
+      <div class="col-lg-4">
+        <%= link_to new_admin_communication_website_agenda_event_path(parent_id: event),
+                    class: 'btn btn-light mb-3 mb-lg-0' do %>
+          <%= lucide_icon :plus, width: 20 %>
+          <%= t('admin.communication.website.agenda.event.create_child') %>
+        <% end %>
+      </div>
+      <div class="col-lg-8">
+        <% event.days.each do |day| %>
+          <% next if day.events.none? %>
+          <div class="mb-5">
+            <h3 class="h4"><%= l day.date, format: :long %></h3>
+            <%= render 'admin/communication/websites/agenda/events/list', events: day.events.ordered %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

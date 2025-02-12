@@ -35,12 +35,15 @@ class Communication::Website::Agenda::Event < ApplicationRecord
   include Duplicable
   include Filterable
   include Categorizable # Must be loaded after Filterable to be filtered by categories
+  include InTime
   include Sanitizable
   include Searchable
   include Localizable
+  include WithDays
+  include WithTimeSlots
+  include WithKinds
   include WithMenuItemTarget
   include WithOpenApi
-  include WithTime
   include WithTree
   include WithUniversity
 
@@ -51,6 +54,10 @@ class Communication::Website::Agenda::Event < ApplicationRecord
   belongs_to  :parent,
               class_name: 'Communication::Website::Agenda::Event',
               optional: true
+  has_many    :children,
+              class_name: 'Communication::Website::Agenda::Event',
+              foreign_key: :parent_id,
+              dependent: :destroy
 
   scope :ordered_desc, -> { order(from_day: :desc, from_hour: :desc) }
   scope :ordered_asc, -> { order(:from_day, :from_hour) }
@@ -68,17 +75,11 @@ class Communication::Website::Agenda::Event < ApplicationRecord
     ", term: "%#{sanitize_sql_like(term)}%")
   }
 
-  def from_datetime
-    time_with from_day, from_hour
-  end
-
-  def to_datetime
-    time_with to_day, to_hour
-  end
-
   def dependencies
     [website.config_default_content_security_policy] +
-    localizations.in_languages(website.active_language_ids)
+    localizations.in_languages(website.active_language_ids) +
+    [parent] +
+    days
   end
 
   def references
@@ -88,6 +89,7 @@ class Communication::Website::Agenda::Event < ApplicationRecord
 
   protected
 
+  # TODO refactor that with service or addition to DateTime (ex: DateTime.merge(date, time))
   def time_with(day, hour)
     DateTime.new  day.year,
                   day.month,

@@ -1,11 +1,11 @@
-module Communication::Website::Agenda::Event::WithTime
+module InTime
   extend ActiveSupport::Concern
+  
+  STATUS_FUTURE = 'future'
+  STATUS_CURRENT = 'current'
+  STATUS_ARCHIVE = 'archive'
 
   included do
-    STATUS_FUTURE = 'future'
-    STATUS_CURRENT = 'current'
-    STATUS_ARCHIVE = 'archive'
-
     scope :future, -> { 
       where('from_day > :today', today: Date.today)
       .ordered_asc 
@@ -67,6 +67,14 @@ module Communication::Website::Agenda::Event::WithTime
     time_zone != website.default_time_zone
   end
 
+  def from_datetime
+    time_with from_day, from_hour
+  end
+
+  def to_datetime
+    time_with to_day, to_hour
+  end
+
   # Un événement demain aura une distance de 1, comme un événement hier
   # On utilise cette info pour classer les événements à venir dans un sens et les archives dans l'autre
   def distance_in_days
@@ -89,6 +97,7 @@ module Communication::Website::Agenda::Event::WithTime
 
   def to_hour_after_from_hour_on_same_day
     return if from_day != to_day
+    return unless respond_to?(:from_hour) && respond_to?(:to_hour)
     errors.add(:to_hour, :too_soon) if to_hour.present? && from_hour.present? && to_hour <= from_hour
   end
 end

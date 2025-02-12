@@ -12,7 +12,7 @@ link_to_all ||= false
       %>
       <div>
         <div class="<%= osuny_card_classes(horizontal: true) %>">
-          <%= osuny_thumbnail_localized event %>
+          <%= osuny_thumbnail_localized event, large: true %>
           <div class="card-body d-flex align-items-center">
             <% unless small %>
               <div class="me-2">

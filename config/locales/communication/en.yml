@@ -160,6 +160,21 @@ en:
         published: Published
         subtitle: Subtitle
         title: Title
+      communication/website/agenda/exhibition:
+        categories: Categories
+        dates: Dates
+        from_day: From day
+        status: Status
+        status_archive: Archive
+        status_current: Running now
+        status_future: In the future
+        time_zone: Time zone
+        to_day: To day
+      communication/website/agenda/exhibition/localization:
+        featured_image: Featured image
+        published: Published
+        subtitle: Subtitle
+        title: Title
       communication/website/connection:
         direct_source: Direct source
         direct_source_id: Direct source identifier
@@ -381,6 +396,9 @@ en:
           events:
             formatted_time_zone: "Time zone: %{time_zone}"
             none: No event yet
+          exhibitions:
+            formatted_time_zone: "Time zone: %{time_zone}"
+            none: No exhibition yet
         confirm_localization:
           text_html: "The creation of <i>%{about}</i> in %{language} requires the localization of the website <i>%{website}</i> in %{language}."
           title: Localization confirmation

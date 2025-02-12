@@ -148,6 +148,7 @@ fr:
         dates: Dates
         from_day: Jour de début
         from_hour: Heure de début
+        parent: Événement parent
         status: Statut
         status_archive: Archive
         status_current: En cours
@@ -156,6 +157,21 @@ fr:
         to_day: Jour de fin
         to_hour: Heure de fin
       communication/website/agenda/event/localization:
+        featured_image: Image à la une
+        published: Publié
+        subtitle: Sous-titre
+        title: Titre
+      communication/website/agenda/exhibition:
+        categories: Catégories
+        dates: Dates
+        from_day: Jour de début
+        status: Statut
+        status_archive: Archive
+        status_current: En cours
+        status_future: À venir
+        time_zone: Fuseau horaire
+        to_day: Jour de fin
+      communication/website/agenda/exhibition/localization:
         featured_image: Image à la une
         published: Publié
         subtitle: Sous-titre
@@ -320,6 +336,9 @@ fr:
       communication/website/agenda/event:
         one: Événement
         other: Événements
+      communication/website/agenda/exhibition:
+        one: Exposition
+        other: Expositions
       communication/website/connection:
         one: Connexion
         other: Connexions
@@ -376,11 +395,15 @@ fr:
       website:
         agenda:
           event:
+            create_child: Créer un événement enfant
             localizations:
               draft: Brouillon
           events:
             formatted_time_zone: "Fuseau horaire : %{time_zone}"
             none: Pas encore d'événements
+          exhibitions:
+            formatted_time_zone: "Fuseau horaire : %{time_zone}"
+            none: Pas encore d'expositions
         confirm_localization:
           text_html: "La création de <i>%{about}</i> en %{language} nécessite la traduction du site web <i>%{website}</i> en %{language}."
           title: Confirmation de traduction
@@ -522,8 +545,14 @@ fr:
             slug: agenda
             title: Agenda
           communication_agenda_archive:
-            slug: archives
-            title: Archives
+            slug: archives-evenements
+            title: Archives des événements
+          communication_agenda_exhibition:
+            slug: expositions
+            title: Expositions
+          communication_agenda_exhibition_archive:
+            slug: archives-expositions
+            title: Archives des expositions
           communication_portfolio:
             slug: projets
             title: Projets

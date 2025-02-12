@@ -8,6 +8,12 @@ module Communication::Website::WithFeatureAgenda
                 dependent: :destroy
     alias       :events :agenda_events
 
+    has_many    :agenda_exhibitions,
+                class_name: "Communication::Website::Agenda::Exhibition",
+                foreign_key: :communication_website_id,
+                dependent: :destroy
+    alias       :exhibitions :agenda_exhibitions
+
     has_many    :agenda_categories,
                 class_name: 'Communication::Website::Agenda::Category',
                 foreign_key: :communication_website_id,

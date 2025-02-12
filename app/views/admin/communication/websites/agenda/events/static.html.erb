@@ -1,5 +1,15 @@
 <%
-event = @l10n.about
+if @l10n.is_a? Communication::Website::Agenda::Event::Day
+  # Shazam! It's not an event, it's a day in a parent event.
+  # Let's put everything in its right place (like Radiohead).
+  day = @l10n
+  event = day.event
+  @l10n = day.event_l10n
+else
+  event = @l10n.about
+  # Always fresh like the first day
+  day = event.days.first
+end
 language = @l10n.language
 %>---
 <%= render 'admin/application/static/core', about: @l10n, skip_date: true %>
@@ -13,6 +23,10 @@ language = @l10n.language
             event: event,
             l10n: @l10n,
             locale: language.iso_code %>
+<%= render 'admin/communication/websites/agenda/events/static/parent',
+            event: event,
+            language: language %>
+<%= render 'admin/communication/websites/agenda/events/static/children', day: day %>
 <%= render 'admin/application/l10n/static', about: @l10n %>
 <%= render 'admin/application/images/featured/static', about: @l10n %>
 <%= render 'admin/application/images/shared/static', about: @l10n %>

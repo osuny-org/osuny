@@ -1,0 +1,48 @@
+<%
+small ||= false
+link_to_all ||= false
+%>
+<% if exhibitions.none? %>
+  <p><%= t('admin.communication.website.agenda.exhibitions.none') %></p>
+<% else %>
+  <div class="row g-2 mb-3">
+    <%
+    exhibitions.each do |exhibition|
+      exhibition_l10n = exhibition.best_localization_for(current_language)
+      %>
+      <div>
+        <div class="<%= osuny_card_classes(horizontal: true) %>">
+          <%= osuny_thumbnail_localized exhibition, large: true %>
+          <div class="card-body d-flex align-items-center">
+            <% unless small %>
+              <div class="me-2">
+                <%= osuny_published_localized exhibition %>
+              </div>
+            <% end %>
+            <div>
+              <%= osuny_link_localized  exhibition,
+                                        admin_communication_website_agenda_exhibition_path(
+                                          website_id: exhibition.website.id,
+                                          id: exhibition.id
+                                        ),
+                                        classes: "stretched-link" %>
+              <% if exhibition_l10n&.subtitle.present? %>
+                <div class="text-muted small mt-1">
+                  <%= exhibition_l10n.subtitle.truncate(45) %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="card-footer text-end small text-muted">
+            <%= render 'admin/communication/websites/agenda/exhibitions/dates',
+                        exhibition: exhibition,
+                        l10n: exhibition_l10n,
+                        detailed: false %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= render 'admin/application/components/all',
+                link: admin_communication_website_agenda_exhibitions_path(website_id: @website) if link_to_all %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<%
+detailed = local_assigns.dig(:detailed)
+day_format = detailed ? :long
+                      : :short
+%>
+<%= date_range_i18n exhibition.from_day,
+                    exhibition.to_day,
+                    format: day_format,
+                    layout: :two_lines,
+                    locale: l10n.language.iso_code %>

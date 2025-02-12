@@ -14,29 +14,52 @@
           <%= render 'admin/application/header_cta/form', f: lf %>
         <% end %>
         <%= osuny_panel Communication::Website::Agenda::Event.human_attribute_name('dates') do %>
-          <div class="row pure__row--small">
-            <div class="col-md-6">
-              <%= f.input :from_day, html5: true %>
+          <% if event.kind_child? %>
+            <div class="row">
+              <div class="col-md-4">
+                <%= f.input :from_day,
+                            html5: true,
+                            input_html: {
+                              min: event.parent.from_day,
+                              max: event.parent.to_day
+                            }
+                            %>
+              </div>
+              <div class="col-md-4">
+                <%= f.input :from_hour, html5: true %>
+              </div>
+              <div class="col-md-4">
+                <%= f.input :to_hour, html5: true %>
+              </div>
             </div>
-            <div class="col-md-6">
-              <%= f.input :from_hour, html5: true %>
+            <%= f.input :time_zone,
+                        collection: time_zones_for_select,
+                        include_blank: false,
+                        selected: f.object.time_zone || @website.default_time_zone %>
+          <% else %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.input :from_day, html5: true  %>
+              </div>
+              <div class="col-md-6">
+                <%= f.input :to_day, html5: true %>
+              </div>
             </div>
-          </div>
-          <div class="row pure__row--small">
-            <div class="col-md-6">
-              <%= f.input :to_day, html5: true %>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :to_hour, html5: true %>
-            </div>
-          </div>
-          <%= f.input :time_zone,
-                      collection: time_zones_for_select,
-                      include_blank: false,
-                      selected: f.object.time_zone || @website.default_time_zone %>
+            <%= f.input :time_zone,
+                        collection: time_zones_for_select,
+                        include_blank: false,
+                        selected: f.object.time_zone || @website.default_time_zone %>
+          <% end %>
         <% end %>
         <%= render 'admin/application/categories/widget/form', f: f, categories: @categories %>
-        <%= render 'admin/application/meta_description/form', f: lf, about: l10n %>
+        <div class="row">
+          <div class="col-lg-6">
+           <%= render 'admin/application/meta_description/form', f: lf, about: l10n %>
+          </div>
+          <div class="col-lg-6">
+            <%= render 'admin/application/images/shared/form', f: lf, about: l10n %>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
         <%= osuny_panel t('metadata') do %>
@@ -44,8 +67,12 @@
           <%= render  'admin/application/slug/form',
                       f: lf,
                       source: '#communication_website_agenda_event_localizations_attributes_0_title' %>
+          <%= f.association :parent,
+                            collection: osuny_collection(
+                              @website.events.root,
+                              localized: true
+                            ) if event.parent.present? %>
         <% end %>
-        <%= render 'admin/application/images/shared/form', f: lf, about: l10n %>
       </div>
     </div>
 

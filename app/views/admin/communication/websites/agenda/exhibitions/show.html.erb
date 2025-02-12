@@ -1,0 +1,50 @@
+<% content_for :title, @l10n %>
+
+<div class="row">
+  <div class="col-lg-7">
+    <%= osuny_panel Communication::Website::Agenda::Exhibition::Localization.human_attribute_name(:title), small: true do %>
+      <p class="lead"><%= @l10n.title %></p>
+      <% if @l10n.subtitle.present? %>
+        <p class="mt-n3 text-muted"><%= @l10n.subtitle %></p>
+      <% end %>
+      <p><%#= render 'admin/communication/websites/agenda/exhibitions/dates', exhibition: @exhibition, l10n: @l10n, detailed: true %></p>
+    <% end %>
+  </div>
+  <div class="offset-lg-1 col-lg-4">
+    <%= render 'admin/application/images/featured/show', about: @l10n, small: true %>
+  </div>
+</div>
+<hr class="mb-5">
+<%= render 'admin/application/a11y/widget', about: @l10n, horizontal: true %>
+<hr class="mb-5">
+<div class="row">
+  <div class="col-lg-4">
+    <%= osuny_panel t('metadata'), small: true do %>
+      <%= render 'admin/application/publication/show', about: @l10n %> 
+      <%= render 'admin/application/categories/widget/show', about: @exhibition %> 
+      <%= render 'admin/application/permalinks/redirects', about: @l10n %>
+      <%= render 'admin/application/l10n/widget', about: @exhibition, l10n: @l10n, small: true %>
+    <% end %>
+  </div>
+  <div class="col-lg-8">
+    <%= render 'admin/application/summary/show', about: @l10n, small: true %>
+    <%= render 'admin/application/meta_description/show', about: @l10n %>
+  </div>
+</div>
+<%= render 'admin/communication/contents/editor', about: @l10n %>
+
+<% content_for :action_bar_left do %>
+  <%= destroy_link @exhibition %>
+  <%= duplicate_link @exhibition %>
+  <%= static_link static_admin_communication_website_agenda_exhibition_path(@exhibition) %>
+<% end %>
+
+<% content_for :action_bar_right do %>
+  <% exhibition_url = @l10n.current_permalink_url_in_website(@website) %>
+  <%= link_to t('open'),
+              exhibition_url,
+              target: :_blank,
+              class: 'btn btn-light btn-xs' if exhibition_url %>
+  <%= edit_link @exhibition %>
+  <%= publish_link @exhibition %>
+<% end %>

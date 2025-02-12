@@ -1,0 +1,34 @@
+<%
+# Dates override default dates in core, so it comes after
+# https://github.com/osunyorg/admin/issues/1880
+if exhibition.archive? %>
+date: "<%= exhibition.from_day&.iso8601 %>"
+<% elsif exhibition.current? %>
+weight: -1
+date: "<%= exhibition.from_day&.iso8601 %>"
+<% else %>
+weight: <%= exhibition.distance_in_days %>
+<% end %>
+dates:
+  status: "<%= exhibition.status %>"
+  archive: <%= exhibition.archive? %>
+  computed:
+    short: >-
+      <%= date_range_i18n(exhibition.from_day, exhibition.to_day, format: :short, locale: locale) %>
+    long: >-
+      <%= date_range_i18n(exhibition.from_day, exhibition.to_day, format: :long, locale: locale) %>
+    two_lines:
+      short: >-
+        <%= date_range_i18n(exhibition.from_day, exhibition.to_day, format: :short, layout: :two_lines, locale: locale) %>
+      long: >-
+        <%= date_range_i18n(exhibition.from_day, exhibition.to_day, format: :long, layout: :two_lines, locale: locale) %>
+  from:
+    day: "<%= exhibition.from_day %>"
+  to:
+    day: "<%= exhibition.to_day || exhibition.from_day %>"
+  add_to_calendar:
+    google: "<%= l10n.cal_google_url.html_safe %>"
+    yahoo: "<%= l10n.cal_yahoo_url.html_safe %>"
+    office: "<%= l10n.cal_office_url.html_safe %>"
+    outlook: "<%= l10n.cal_outlook_url.html_safe %>"
+    ical: "<%= l10n.cal_ical_url.html_safe %>"

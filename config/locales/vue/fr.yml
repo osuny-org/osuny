@@ -40,3 +40,12 @@ fr:
         title: Médiathèque
       remove: Supprimer l'image
       title: Image
+    timeSlots:
+      add: Ajouter un créneau horaire
+      datetime:
+        label: Horaire
+      duration:
+        label: Durée
+      place:
+        hint: Par exemple “Grande salle” ou “Hors les murs”
+        label: Lieu

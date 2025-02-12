@@ -1,0 +1,51 @@
+<%= simple_form_for [:admin, exhibition] do |f| %>
+  <%= f.simple_fields_for :localizations, l10n do |lf| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <%= lf.hidden_field :language_id, value: current_language.id %>
+
+    <div class="row">
+      <div class="col-md-8">
+        <%= osuny_panel t('content') do %>
+          <%= lf.input :title, input_html: { data: { translatable: true } } %>
+          <%= lf.input :subtitle, input_html: { data: { translatable: true } } %>
+          <%= render 'admin/application/summary/form', f: lf, about: l10n %>
+          <%= render 'admin/application/header_cta/form', f: lf %>
+        <% end %>
+        <%= osuny_panel Communication::Website::Agenda::Exhibition.human_attribute_name('dates') do %>
+          <div class="row">
+            <div class="col-lg-4">
+              <%= f.input :from_day, html5: true %>
+            </div>
+            <div class="col-lg-4">
+              <%= f.input :to_day, html5: true %>
+            </div>
+            <div class="col-lg-4">
+              <%= f.input :time_zone,
+                          collection: time_zones_for_select,
+                          include_blank: false,
+                          selected: f.object.time_zone || @website.default_time_zone %>
+            </div>
+          </div>
+        <% end %>
+        <%= render 'admin/application/categories/widget/form', f: f, categories: @categories %>
+        <%= render 'admin/application/meta_description/form', f: lf, about: l10n %>
+      </div>
+      <div class="col-md-4">
+        <%= osuny_panel t('metadata') do %>
+          <%= render 'admin/application/publication/form', f: lf, about: exhibition %>
+          <%= render  'admin/application/slug/form',
+                      f: lf,
+                      source: '#communication_website_agenda_exhibition_localizations_attributes_0_title' %>
+        <% end %>
+        <%= render 'admin/application/images/shared/form', f: lf, about: l10n %>
+      </div>
+    </div>
+
+    <% content_for :action_bar_right do %>
+      <%= render 'admin/application/l10n/libre_translate_button', l10n: l10n %>
+      <%= submit f %>
+    <% end %>
+  <% end %>
+<% end %>

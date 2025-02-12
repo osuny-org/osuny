@@ -37,7 +37,6 @@ module Communication::Website::Agenda::Event::Localization::WithCal
     add_to_calendar_urls['ical']
   end
 
-
   protected
 
   def set_add_to_calendar_urls

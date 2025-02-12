@@ -1,0 +1,11 @@
+<%
+if event.parent.present?
+  l10n = event.parent.localization_for(language)
+  hugo = l10n.hugo(@website)
+%>
+parent:
+  permalink: "<%= hugo.permalink %>"
+  path: "<%= hugo.path %>"
+  slug: "<%= hugo.slug %>"
+  file: "<%= hugo.file %>"
+<% end %>

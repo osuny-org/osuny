@@ -1,0 +1,16 @@
+<%
+if day.present?
+  event = day.event
+  language = day.language
+  children_for_day = day.events.ordered(language)
+  children = event.children.ordered(language)
+%>
+<%= render 'admin/application/static/hugo/collection',
+    key: :children_for_the_day,
+    collection: children_for_day,
+    language: language %>
+<%= render 'admin/application/static/hugo/collection',
+    key: :children,
+    collection: children,
+    language: language %>
+<% end %>

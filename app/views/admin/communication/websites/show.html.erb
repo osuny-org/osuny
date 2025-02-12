@@ -53,7 +53,6 @@ number_of_panels = 0
 <% end %>
 
 <% content_for :action_bar_right do %>
-  <%= edit_link @website %>
   <%= link_to t('communication.website.golive.button'),
               production_admin_communication_website_path(@website),
               class: button_classes unless @website.in_production %>

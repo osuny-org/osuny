@@ -5,6 +5,7 @@ module Communication::Website::Permalink::WithMapping
     MAPPING = {
       "Administration::Location::Localization" => Communication::Website::Permalink::Location,
       "Communication::Website::Agenda::Event::Localization" => Communication::Website::Permalink::Agenda::Event,
+      "Communication::Website::Agenda::Exhibition::Localization" => Communication::Website::Permalink::Agenda::Exhibition,
       "Communication::Website::Agenda::Category::Localization" => Communication::Website::Permalink::Agenda::Category,
       "Communication::Website::Page::Category::Localization" => Communication::Website::Permalink::Page::Category,
       "Communication::Website::Page::Localization" => Communication::Website::Permalink::Page,

@@ -32,6 +32,8 @@
   </div>
 </div>
 <%= render 'admin/communication/contents/editor', about: @l10n %>
+<%= render 'admin/communication/websites/agenda/events/show/children', event: @event %>
+<%= render 'admin/communication/websites/agenda/events/show/time_slots', event: @event %>
 
 <% content_for :action_bar_left do %>
   <%= destroy_link @event %>
