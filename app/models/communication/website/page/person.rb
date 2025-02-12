@@ -1,5 +1,9 @@
 class Communication::Website::Page::Person < Communication::Website::Page
 
+  def design_options_block_template_kind
+    :persons
+  end
+
   def dependencies
     super +
     [website.config_default_languages] +

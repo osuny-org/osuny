@@ -1,3 +1,5 @@
+<%= block_component_edit block, :description, summernote_config: 'mini' %>
+
 <%= block_component_edit block, :alphabetical %>
 <div class="table-responsive mb-5">
   <div class="fake-table">
@@ -49,11 +51,4 @@
   </a>
 </div>
 
-<div class="row">
-  <div class="col-lg-6">
-    <%= block_component_edit block, :description, summernote_config: 'mini' %>
-  </div>
-  <div class="col-lg-6">
-    <%= block_component_edit block, :caption %>
-  </div>
-</div>
+<%= block_component_edit block, :caption %>

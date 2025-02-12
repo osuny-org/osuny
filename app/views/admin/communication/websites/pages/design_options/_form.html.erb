@@ -1,0 +1,24 @@
+<%
+if about.design_options?
+  @kind = @page.design_options_block_template_kind
+  @block = @page.design_options_block
+  @data = @page.design_options
+  %>
+  <div id="options-app" class="mb-5" v-cloak>
+    <%= block_component_edit @block, :layout %>
+    <%= render "admin/communication/blocks/templates/#{@kind}/options", block: @block %>
+    <textarea name="communication_website_page[design_options]" rows="20" cols="100" class="d-none">{{ JSON.stringify(data) }}</textarea>
+  </div>
+  <%# Include vue.js before calling Vue.createApp %>
+  <%= javascript_include_tag 'vue' %>
+  <script nonce="<%= request.content_security_policy_nonce %>">
+    var app = Vue.createApp({
+      data() {
+        return {
+          data: <%= @data.to_json.html_safe %>
+        }
+      }
+    });
+    app.mount('#options-app');
+  </script>
+<% end %>

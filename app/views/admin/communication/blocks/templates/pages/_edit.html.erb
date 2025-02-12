@@ -41,8 +41,5 @@
 <%= osuny_separator %>
 <%= osuny_panel t('admin.communication.blocks.components.layouts.label'), small: true do %>
   <%= block_component_edit block, :layout %>
-  <%= osuny_label t('admin.communication.blocks.display_options.title') %>
-  <%= block_component_edit block, :option_main_summary %>
-  <%= block_component_edit block, :option_image %>
-  <%= block_component_edit block, :option_summary %>
+  <%= render 'admin/communication/blocks/templates/pages/options', block: block %>
 <% end %>

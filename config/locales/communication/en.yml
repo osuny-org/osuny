@@ -546,8 +546,8 @@ en:
             slug: organizations
             title: Organizations
           person:
-            slug: team
-            title: Team
+            slug: persons
+            title: Persons
           privacy_policy:
             slug: privacy-policy
             title: Privacy policy
@@ -596,7 +596,7 @@ en:
           item:
             kind:
               administrators: Administration staff
-              authors: Editorial staff
+              authors: Authors
               blank: Title
               category: News category
               diploma: Specific diploma
@@ -606,13 +606,13 @@ en:
               page: Specific Page
               paper: Specific research paper
               papers: Research papers index
-              persons: Staff
+              persons: Persons
               post: Specific news
               posts: News index
               program: Specific program
               programs: Programs index
-              researchers: Research staff
-              teachers: Educational staff
+              researchers: Researchers
+              teachers: Teachers
               url: URL
               volume: Specific research volume
               volumes: Research volumes index

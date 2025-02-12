@@ -1,11 +1,9 @@
-<%= osuny_panel t('shared_image.title') do %>
-  <%= f.input :shared_image,
-              as: :single_deletable_file,
-              label: false,
-              hint: file_hint(
-                filesize: number_to_human_size(500.kilobytes),
-                formats: '.jpg, .png'
-              ),
-              input_html: { accept: '.jpg, .png' },
-              preview: true %>
-<% end %>
+<%= f.input :shared_image,
+            as: :single_deletable_file,
+            label: t('shared_image.title'),
+            hint: file_hint(
+              filesize: number_to_human_size(500.kilobytes),
+              formats: '.jpg, .png'
+            ),
+            input_html: { accept: '.jpg, .png' },
+            preview: true %>

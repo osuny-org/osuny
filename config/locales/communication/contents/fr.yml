@@ -465,7 +465,6 @@ fr:
                 label: Avec des liens cliquables vers les pages des organisations?
               option_logo:
                 label: Logo
-              options: Options d'affichage
             layouts:
               grid:
                 description: Une série de logos carrés, avec le nom de chaque organisation.
@@ -487,12 +486,6 @@ fr:
                   category: Une catégorie spécifique de pages
                   children: La page principale et ses enfants
                   selection: Une sélection spécifique de pages
-              option_image:
-                label: Afficher les images des pages
-              option_main_summary:
-                label: Afficher le résumé de la page principale
-              option_summary:
-                label: Afficher les descriptions courtes des pages
               page_id:
                 hint: Cette page principale définira le titre et le lien du bloc. Si vous choisissez une page sans remplir le titre ci-dessus, le titre de la page sera utilisé. Si le titre est rempli, il remplacera le titre de la page sélectionnée, en utilisant le lien de la page.
                 label: Sélectionnez une page principale
@@ -502,6 +495,8 @@ fr:
                 label: Page
                 none: Aucune page
                 title: Pages sélectionnées
+              show_main_summary:
+                label: Afficher le résumé de la page principale
             layouts:
               alternate:
                 description: Une alternance très légère graphiquement de pages, rythmée entre la gauche et la droite.
@@ -559,11 +554,9 @@ fr:
                   category: Une catégorie spécifique
                   selection: Une sélection de personnes
               option_contact:
-                label: "Avec les informations de contact de chaque personne\_?"
-              option_image:
-                label: "Avec un portrait de chaque personne\_?"
+                label: Informations de contact
               option_link:
-                label: Lien cliquable vers la page de la personne
+                label: Lien cliquable
               options: Options d'affichage
             layouts:
               grid:

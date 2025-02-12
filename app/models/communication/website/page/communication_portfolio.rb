@@ -1,5 +1,9 @@
 class Communication::Website::Page::CommunicationPortfolio < Communication::Website::Page
 
+  def design_options_block_template_kind
+    :projects
+  end
+
   def editable_width?
     false
   end

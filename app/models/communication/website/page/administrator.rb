@@ -1,5 +1,9 @@
 class Communication::Website::Page::Administrator < Communication::Website::Page
 
+  def design_options_block_template_kind
+    :persons
+  end
+
   def is_necessary_for_website?
     website.about && website.about&.respond_to?(:administrators)
   end

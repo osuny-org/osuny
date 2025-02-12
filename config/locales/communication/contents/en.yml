@@ -465,7 +465,6 @@ en:
                 label: With clickable link to each organization's page?
               option_logo:
                 label: Logo
-              options: Display options
             layouts:
               grid:
                 description: Square logos and a simple text below.
@@ -487,12 +486,6 @@ en:
                   category: A specific category
                   children: Main page and children
                   selection: A specific selection of pages
-              option_image:
-                label: Show pages images
-              option_main_summary:
-                label: Show main page summary
-              option_summary:
-                label: Show pages short descriptions
               page_id:
                 hint: This page will set the title and main link of the block on the website. If you select a page and fill no title above, the page title will be used. If you set a title, it will replace the main page's title.
                 label: Select the main page
@@ -502,6 +495,8 @@ en:
                 label: Page
                 none: No page
                 title: Selected pages
+              show_main_summary:
+                label: Show main page summary
             layouts:
               alternate:
                 description: Pages either on the left or on the right, composing a graphically light layout.
@@ -559,15 +554,13 @@ en:
                   category: A specific category
                   selection: A selection of persons
               option_contact:
-                label: "With contact information for each person?"
-              option_image:
-                label: With a portrait for each person?
+                label: Contact information
               option_link:
-                label: Clickable link to person's page
+                label: Clickable link
               options: Display options
             layouts:
               grid:
-                description: As a grid, left to right and top to bottom.
+                description: A grid of persons, with circular photos the same size.
                 label: Grid
               large:
                 description: Each person is presented in majesty, across the full width available, with a large image.

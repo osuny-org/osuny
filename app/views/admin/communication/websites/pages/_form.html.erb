@@ -10,7 +10,7 @@ url = page.new_record?  ? admin_communication_website_pages_path
     <%= lf.hidden_field :language_id, value: current_language.id %>
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-lg-8">
         <%= osuny_panel t('content') do %>
           <%= lf.input :title, input_html: { data: { translatable: true } } %>
           <%= lf.input :breadcrumb_title, input_html: { data: { translatable: true } } %>
@@ -20,9 +20,17 @@ url = page.new_record?  ? admin_communication_website_pages_path
           <%= lf.input :text, as: :summernote if strip_tags(l10n.text).present? %>
         <% end %>
         <%= render 'admin/application/categories/widget/form', f: f, categories: @categories %>
-        <%= render 'admin/application/meta_description/form', f: lf, about: l10n %>
+        <%= render 'admin/communication/websites/pages/design_options/form', f: f, about: page %>
+        <div class="row">
+          <div class="col-lg-6">
+          <%= render 'admin/application/meta_description/form', f: lf, about: l10n %>
+          </div>
+          <div class="col-lg-6">
+            <%= render 'admin/application/images/shared/form', f: lf, about: @l10n %>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-lg-4">
         <%= osuny_panel t('metadata') do %>
           <%= lf.input :published,
                         label: t('publication.published'),
@@ -40,7 +48,6 @@ url = page.new_record?  ? admin_communication_website_pages_path
           <%= f.input :bodyclass if can?(:edit, @website) %>
           <%= f.input :full_width if page.editable_width? %>
         <% end %>
-        <%= render 'admin/application/images/shared/form', f: lf, about: @l10n %>
       </div>
     </div>
 

@@ -45,9 +45,7 @@
 <%= osuny_separator %>
 <%= osuny_panel t('admin.communication.blocks.components.layouts.label'), small: true do %>
   <%= block_component_edit block, :layout %>
-  <%= osuny_label t('admin.communication.blocks.display_options.title') %>
-  <%= block_component_edit block, :option_logo %>
-  <%= block_component_edit block, :option_summary, label: t('admin.summary.label') %>
+  <%= render 'admin/communication/blocks/templates/organizations/options', block: block %>
   <%= block_component_edit block, :option_link %>
   <div v-if="data.mode === 'selection'">
     <%= block_component_edit block, :alphabetical %>
