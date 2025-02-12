@@ -1,17 +1,9 @@
 <%= simple_format @l10n.invitation_message_text %>
 
-<% if @user.present? %>
-  <p>
-    <%= t('mailers.extranet.invitation_message.with_user_html',
-          email: @email,
-          sign_in_url: new_user_session_url(email: @email, host: @extranet.host)) %>
-  </p>
-<% else %>
-  <p>
-    <%= t('mailers.extranet.invitation_message.without_user_html',
-          email: @email,
-          sign_up_url: new_user_registration_url(email: @email, host: @extranet.host)) %>
-  </p>
-<% end %>
+<p>
+  <%= t('mailers.extranet.invitation_message.cta_html',
+        email: @email,
+        sign_in_url: new_user_session_url(email: @email, host: @extranet.host)) %>
+</p>
 
 <p><%= t('mailers.yours') %></p>

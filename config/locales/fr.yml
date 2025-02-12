@@ -415,10 +415,9 @@ fr:
   mailers:
     extranet:
       invitation_message:
+        cta_html: Vous pouvez vous y connecter ou inscrire avec votre adresse email <b>%{email}</b> en cliquant <a href="%{sign_in_url}">ici</a>.
         subject: Bienvenue sur votre extranet
         text: Vous avez désormais accès à l'extranet.
-        with_user_html: Vous pouvez vous y connecter avec votre adresse email <b>%{email}</b> en cliquant <a href="%{sign_in_url}">ici</a>.
-        without_user_html: Vous pouvez vous y inscrire avec votre adresse email <b>%{email}</b> en cliquant <a href="%{sign_up_url}">ici</a>.
     notifications:
       import:
         subject_with_errors: Votre import a bien été traité mais comporte des erreurs

@@ -415,10 +415,9 @@ en:
   mailers:
     extranet:
       invitation_message:
+        cta_html: You can sign in or sign up with your email address <b>%{email}</b> by clicking <a href="%{sign_in_url}">here</a>.
         subject: Welcome to your extranet
         text: You now have access to the extranet.
-        with_user_html: You can sign in with your email address <b>%{email}</b> by clicking <a href="%{sign_in_url}">here</a>.
-        without_user_html: You can sign up with your email address <b>%{email}</b> by clicking <a href="%{sign_up_url}">here</a>.
     notifications:
       import:
         subject_with_errors: Your import has been processed with errors
